@@ -1,32 +1,32 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-/**********
- *
- * <div id='parent'>
- *  <div id='parent'>
- *          <h1 id='heading'>Hi, I am heading in react</h1>
- * </div>
- * </div>
- *
- *
- *
- *
- */
 
 const heading = React.createElement(
   "h1",
   { id: "heading" },
-  "Hello world from React..!"
+  "Namaste React..!"
 );
 
-const headingInDiv = React.createElement(
-  "div",
-  { id: "parent" },
-  React.createElement(
-    "div",
-    { id: "child" },
-    React.createElement("h1", { id: "heading" }, "I am heading from div class")
-  )
+const Title = () => <h1>React Title component</h1>;
+const jsxHeading = <h1 id="heading">Hi Iam from JSX</h1>;
+console.log(jsxHeading, "jsx");
+
+const Heading = () => (
+  <div>
+    <Title />
+    <h1>Namaste React Functional Component</h1>
+  </div>
 );
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(headingInDiv);
+// root.render(jsxHeading);
+
+/**
+ *
+ * To render a react component, we use below syntax
+ */
+
+root.render(<Heading />);
+const newRoot = ReactDOM.createRoot(document.getElementById("root"));
+
+newRoot.render(<Title />);
