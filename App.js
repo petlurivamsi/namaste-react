@@ -1,32 +1,1953 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const heading = React.createElement(
-  "h1",
-  { id: "heading" },
-  "Namaste React..!"
-);
+/***
+ * Header
+ *  -Logo
+ *  -Nav Items
+ * Body
+ *  -Search
+ *  -RestaurantContainer
+ *  -RestaurantCard
+ *      -Img
+ *      -Name of res,Star Rating,Cusine,Delivery time
+ * Footer
+ *  -Copyright
+ *  -Links
+ *  -Address
+ *  -Contact
+ *
+ */
+const Header = () => {
+  return (
+    <div className="header">
+      <div className="logo-container">
+        <img
+          className="logo"
+          src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png"
+        />
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact</li>
+          <li>Cart</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
 
-const Title = () => <h1>React Title component</h1>;
-const jsxHeading = <h1 id="heading">Hi Iam from JSX</h1>;
-console.log(jsxHeading, "jsx");
+let resObj = [
+  {
+    type: "restaurant",
+    data: {
+      type: "F",
+      id: "543567",
+      name: "Sri Raghavendra Pure Veg",
+      uuid: "c1c61d27-8544-4772-9eb9-5ce76815ee04",
+      city: "3",
+      area: "Kothapet & Dilsukhnagar",
+      totalRatingsString: "1000+ ratings",
+      cloudinaryImageId: "vicge2mmkuexcsbbgvl8",
+      cuisines: ["South Indian", "Beverages"],
+      tags: [],
+      costForTwo: 20000,
+      costForTwoString: "₹200 FOR TWO",
+      deliveryTime: 51,
+      minDeliveryTime: 51,
+      maxDeliveryTime: 51,
+      slaString: "51 MINS",
+      lastMileTravel: 13.199999809265137,
+      slugs: {
+        restaurant:
+          "sri-raghavendra-pure-veg-kothapet-&-dilsukhnagar-kothapet-&-dilsukhnagar",
+        city: "hyderabad",
+      },
+      cityState: "3",
+      address:
+        "Hsno 1-1-484 plot no 10 mohan nagar opp to masjid, Ratna Nagar, SBH Colony, Kothapet, Hyderabad, Telangana 500035, India",
+      locality: "Sbh Colony",
+      parentId: 194264,
+      unserviceable: false,
+      veg: true,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      aggregatedDiscountInfo: {
+        header: "10% off",
+        shortDescriptionList: [
+          {
+            meta: "10% off | Use TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "10% off up to ₹40 | Use code TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      aggregatedDiscountInfoV2: {
+        header: "10% OFF",
+        shortDescriptionList: [
+          {
+            meta: "Use TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "10% off up to ₹40 | Use code TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      chain: [],
+      feeDetails: {
+        fees: [
+          {
+            name: "distance",
+            fee: 11300,
+            message: "",
+          },
+          {
+            name: "time",
+            fee: 0,
+            message: "",
+          },
+          {
+            name: "special",
+            fee: 0,
+            message: "",
+          },
+        ],
+        totalFees: 11300,
+        message: "",
+        title: "Delivery Charge",
+        amount: "11300",
+        icon: "",
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: "",
+        nextCloseMessage: "",
+      },
+      longDistanceEnabled: 1,
+      rainMode: "NONE",
+      thirdPartyAddress: false,
+      thirdPartyVendor: "",
+      adTrackingID: "",
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: [],
+      },
+      lastMileTravelString: "13.1 kms",
+      hasSurge: false,
+      sla: {
+        restaurantId: "543567",
+        deliveryTime: 51,
+        minDeliveryTime: 51,
+        maxDeliveryTime: 51,
+        lastMileTravel: 13.199999809265137,
+        lastMileDistance: 0,
+        serviceability: "SERVICEABLE",
+        rainMode: "NONE",
+        longDistance: "IT_IS_LONG_DISTANCE",
+        preferentialService: false,
+        iconType: "EMPTY",
+      },
+      promoted: false,
+      avgRating: "4.2",
+      totalRatings: 1000,
+      new: false,
+    },
+    subtype: "basic",
+  },
+  {
+    type: "restaurant",
+    data: {
+      type: "F",
+      id: "168091",
+      name: "Karthikeya Tiffins Pure Veg",
+      uuid: "02c93e1c-4cad-4e69-aa32-c6e8f70c984c",
+      city: "3",
+      area: "Uppal",
+      totalRatingsString: "5000+ ratings",
+      cloudinaryImageId: "ibvka2f67sjhsuxwmdgc",
+      cuisines: ["South Indian"],
+      tags: [],
+      costForTwo: 15000,
+      costForTwoString: "₹150 FOR TWO",
+      deliveryTime: 35,
+      minDeliveryTime: 35,
+      maxDeliveryTime: 35,
+      slaString: "35 MINS",
+      lastMileTravel: 8.800000190734863,
+      slugs: {
+        restaurant: "karthikeya-tiffins-pure-veg-uppal",
+        city: "hyderabad",
+      },
+      cityState: "3",
+      address: "4-66, Bharath Nagar,Near Uppal Bus Stop,Uppal",
+      locality: "Near Uppal Bus Stop",
+      parentId: 115310,
+      unserviceable: false,
+      veg: true,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      aggregatedDiscountInfo: {
+        header: "20% off",
+        shortDescriptionList: [
+          {
+            meta: "20% off | Use TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "20% off up to ₹50 | Use code TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      aggregatedDiscountInfoV2: {
+        header: "20% OFF",
+        shortDescriptionList: [
+          {
+            meta: "Use TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "20% off up to ₹50 | Use code TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      chain: [],
+      feeDetails: {
+        fees: [
+          {
+            name: "distance",
+            fee: 6300,
+            message: "",
+          },
+          {
+            name: "time",
+            fee: 0,
+            message: "",
+          },
+          {
+            name: "special",
+            fee: 0,
+            message: "",
+          },
+        ],
+        totalFees: 6300,
+        message: "",
+        title: "Delivery Charge",
+        amount: "6300",
+        icon: "",
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: "",
+        nextCloseMessage: "",
+      },
+      longDistanceEnabled: 1,
+      rainMode: "NONE",
+      thirdPartyAddress: false,
+      thirdPartyVendor: "",
+      adTrackingID: "",
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: [],
+      },
+      lastMileTravelString: "8.8 kms",
+      hasSurge: false,
+      sla: {
+        restaurantId: "168091",
+        deliveryTime: 35,
+        minDeliveryTime: 35,
+        maxDeliveryTime: 35,
+        lastMileTravel: 8.800000190734863,
+        lastMileDistance: 0,
+        serviceability: "SERVICEABLE",
+        rainMode: "NONE",
+        longDistance: "IT_IS_LONG_DISTANCE",
+        preferentialService: false,
+        iconType: "EMPTY",
+      },
+      promoted: false,
+      avgRating: "4.1",
+      totalRatings: 5000,
+      new: false,
+    },
+    subtype: "basic",
+  },
+  {
+    type: "restaurant",
+    data: {
+      type: "F",
+      id: "302792",
+      name: "SRI RAMA DOSA DARBAR",
+      uuid: "a3a65d2c-b087-4dbd-8c7a-6052e52e5380",
+      city: "3",
+      area: "Boduppal",
+      totalRatingsString: "1000+ ratings",
+      cloudinaryImageId: "ibhpaja03xkgkjwfdsxn",
+      cuisines: ["South Indian"],
+      tags: [],
+      costForTwo: 10000,
+      costForTwoString: "₹100 FOR TWO",
+      deliveryTime: 39,
+      minDeliveryTime: 39,
+      maxDeliveryTime: 39,
+      slaString: "39 MINS",
+      lastMileTravel: 9.100000381469727,
+      slugs: {
+        restaurant: "sri-rama-dosa-darbar-uppal-uppal",
+        city: "hyderabad",
+      },
+      cityState: "3",
+      address:
+        "Rishi School, Venkateshwara Temple Road, Dwaraka Nagar, Sai Nagar, Uppal, Hyderabad, Telangana, India",
+      locality: "Uppal",
+      parentId: 19357,
+      unserviceable: false,
+      veg: false,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      aggregatedDiscountInfo: {
+        header: "40% off",
+        shortDescriptionList: [
+          {
+            meta: "40% off | Use TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "40% off up to ₹80 | Use code TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      aggregatedDiscountInfoV2: {
+        header: "40% OFF",
+        shortDescriptionList: [
+          {
+            meta: "Use TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "40% off up to ₹80 | Use code TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      chain: [],
+      feeDetails: {
+        fees: [
+          {
+            name: "distance",
+            fee: 7300,
+            message: "",
+          },
+          {
+            name: "time",
+            fee: 0,
+            message: "",
+          },
+          {
+            name: "special",
+            fee: 0,
+            message: "",
+          },
+        ],
+        totalFees: 7300,
+        message: "",
+        title: "Delivery Charge",
+        amount: "7300",
+        icon: "",
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: "",
+        nextCloseMessage: "",
+      },
+      longDistanceEnabled: 1,
+      rainMode: "NONE",
+      thirdPartyAddress: false,
+      thirdPartyVendor: "",
+      adTrackingID: "",
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: [],
+      },
+      lastMileTravelString: "9.1 kms",
+      hasSurge: false,
+      sla: {
+        restaurantId: "302792",
+        deliveryTime: 39,
+        minDeliveryTime: 39,
+        maxDeliveryTime: 39,
+        lastMileTravel: 9.100000381469727,
+        lastMileDistance: 0,
+        serviceability: "SERVICEABLE",
+        rainMode: "NONE",
+        longDistance: "IT_IS_LONG_DISTANCE",
+        preferentialService: false,
+        iconType: "EMPTY",
+      },
+      promoted: false,
+      avgRating: "4.2",
+      totalRatings: 1000,
+      new: false,
+    },
+    subtype: "basic",
+  },
+  {
+    type: "restaurant",
+    data: {
+      type: "F",
+      id: "168094",
+      name: "Sri Sai Raghavendra Tiffins",
+      uuid: "1846d027-ec84-4106-8eb7-e3330cb395d2",
+      city: "3",
+      area: "Boduppal",
+      totalRatingsString: "1000+ ratings",
+      cloudinaryImageId: "dzofmslsngxjz5su3h47",
+      cuisines: ["South Indian"],
+      tags: [],
+      costForTwo: 15000,
+      costForTwoString: "₹150 FOR TWO",
+      deliveryTime: 35,
+      minDeliveryTime: 35,
+      maxDeliveryTime: 35,
+      slaString: "35 MINS",
+      lastMileTravel: 7.099999904632568,
+      slugs: {
+        restaurant: "sri-sai-raghavendra-tiffins-uppal",
+        city: "hyderabad",
+      },
+      cityState: "3",
+      address:
+        "Plot No.4,Raghavendra Nagar Colony,Hyderabad-Warangal Road, Peerzadiguda,, Near Spark Hospital,Beside ICICI Bank,, Raghavendra Nagar Colony, Bhagya Nagar Colony, Peerzadiguda, Hyderabad, Telangana 500",
+      locality: "Raghavendra Nagar Colony",
+      parentId: 19685,
+      unserviceable: false,
+      veg: false,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      aggregatedDiscountInfo: {
+        header: "40% off",
+        shortDescriptionList: [
+          {
+            meta: "40% off | Use GUILTFREE",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "40% off up to ₹100 | Use code GUILTFREE",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      aggregatedDiscountInfoV2: {
+        header: "40% OFF",
+        shortDescriptionList: [
+          {
+            meta: "Use GUILTFREE",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "40% off up to ₹100 | Use code GUILTFREE",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      chain: [],
+      feeDetails: {
+        fees: [
+          {
+            name: "distance",
+            fee: 5300,
+            message: "",
+          },
+          {
+            name: "time",
+            fee: 0,
+            message: "",
+          },
+          {
+            name: "special",
+            fee: 0,
+            message: "",
+          },
+        ],
+        totalFees: 5300,
+        message: "",
+        title: "Delivery Charge",
+        amount: "5300",
+        icon: "",
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: "",
+        nextCloseMessage: "",
+      },
+      longDistanceEnabled: 1,
+      rainMode: "NONE",
+      thirdPartyAddress: false,
+      thirdPartyVendor: "",
+      adTrackingID: "",
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: [],
+      },
+      lastMileTravelString: "7 kms",
+      hasSurge: false,
+      sla: {
+        restaurantId: "168094",
+        deliveryTime: 35,
+        minDeliveryTime: 35,
+        maxDeliveryTime: 35,
+        lastMileTravel: 7.099999904632568,
+        lastMileDistance: 0,
+        serviceability: "SERVICEABLE",
+        rainMode: "NONE",
+        longDistance: "IT_IS_LONG_DISTANCE",
+        preferentialService: false,
+        iconType: "EMPTY",
+      },
+      promoted: false,
+      avgRating: "4.2",
+      totalRatings: 1000,
+      new: false,
+    },
+    subtype: "basic",
+  },
+  {
+    type: "restaurant",
+    data: {
+      type: "F",
+      id: "373081",
+      name: "OM SRI SAI RAGHAVENDRA TIFFIN CENTR",
+      uuid: "b2bbd391-8b71-41ed-af71-5e41d4170a4d",
+      city: "3",
+      area: "Kapra",
+      totalRatingsString: "1000+ ratings",
+      cloudinaryImageId: "hdkeqd0exyixcnf0rrkc",
+      cuisines: ["South Indian", "Chinese", "North Indian"],
+      tags: [],
+      costForTwo: 18000,
+      costForTwoString: "₹180 FOR TWO",
+      deliveryTime: 47,
+      minDeliveryTime: 47,
+      maxDeliveryTime: 47,
+      slaString: "47 MINS",
+      lastMileTravel: 11.800000190734863,
+      slugs: {
+        restaurant:
+          "om-sri-sai-raghavendra-tiffin-centr-a.s.-rao-nagar-&-sainikpuri-a.s.-rao-nagar-&-sainikpuri",
+        city: "hyderabad",
+      },
+      cityState: "3",
+      address:
+        "H No.6, 588, BC.Hostel Line, Venkateshwara Nagar, Vivek Nagar, Tarapuri Colony, Nagaram, Secunderabad, Telangana 500083, India",
+      locality: "A.S. Rao Nagar & Sainikpuri",
+      parentId: 151934,
+      unserviceable: false,
+      veg: false,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      aggregatedDiscountInfo: {
+        header: "20% off",
+        shortDescriptionList: [
+          {
+            meta: "20% off | Use TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "20% off up to ₹50 | Use code TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      aggregatedDiscountInfoV2: {
+        header: "20% OFF",
+        shortDescriptionList: [
+          {
+            meta: "Use TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "20% off up to ₹50 | Use code TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      chain: [],
+      feeDetails: {
+        fees: [
+          {
+            name: "distance",
+            fee: 9300,
+            message: "",
+          },
+          {
+            name: "time",
+            fee: 0,
+            message: "",
+          },
+          {
+            name: "special",
+            fee: 0,
+            message: "",
+          },
+        ],
+        totalFees: 9300,
+        message: "",
+        title: "Delivery Charge",
+        amount: "9300",
+        icon: "",
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: "",
+        nextCloseMessage: "",
+      },
+      longDistanceEnabled: 1,
+      rainMode: "NONE",
+      thirdPartyAddress: false,
+      thirdPartyVendor: "",
+      adTrackingID: "",
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: [],
+      },
+      lastMileTravelString: "11.8 kms",
+      hasSurge: false,
+      sla: {
+        restaurantId: "373081",
+        deliveryTime: 47,
+        minDeliveryTime: 47,
+        maxDeliveryTime: 47,
+        lastMileTravel: 11.800000190734863,
+        lastMileDistance: 0,
+        serviceability: "SERVICEABLE",
+        rainMode: "NONE",
+        longDistance: "IT_IS_LONG_DISTANCE",
+        preferentialService: false,
+        iconType: "EMPTY",
+      },
+      promoted: false,
+      avgRating: "4.0",
+      totalRatings: 1000,
+      new: false,
+    },
+    subtype: "basic",
+  },
+  {
+    type: "restaurant",
+    data: {
+      type: "F",
+      id: "10260",
+      name: "Sri Sampoorna Hotel",
+      uuid: "d223b2ea-5f7e-4ead-8299-f00d49e830db",
+      city: "3",
+      area: "Peerzadiguda",
+      totalRatingsString: "10000+ ratings",
+      cloudinaryImageId: "fvl6myo8rmcyir30bv5z",
+      cuisines: [
+        "North Indian",
+        "Chinese",
+        "Indian",
+        "Haleem",
+        "Desserts",
+        "Beverages",
+        "Biryani",
+      ],
+      tags: [],
+      costForTwo: 50000,
+      costForTwoString: "₹500 FOR TWO",
+      deliveryTime: 27,
+      minDeliveryTime: 27,
+      maxDeliveryTime: 27,
+      slaString: "27 MINS",
+      lastMileTravel: 5.599999904632568,
+      slugs: {
+        restaurant: "sri-sampoorna-hotel-warangal-hyderabad-road-uppal",
+        city: "hyderabad",
+      },
+      cityState: "3",
+      address: "#17-3, Kamala Nagar, Boduppal, Hyderabad",
+      locality: "Boduppal & Singapore township",
+      parentId: 19178,
+      unserviceable: false,
+      veg: false,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      aggregatedDiscountInfo: {
+        header: "10% off",
+        shortDescriptionList: [
+          {
+            meta: "10% off | Use TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "10% off up to ₹40 | Use code TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      aggregatedDiscountInfoV2: {
+        header: "10% OFF",
+        shortDescriptionList: [
+          {
+            meta: "Use TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "10% off up to ₹40 | Use code TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      chain: [],
+      feeDetails: {
+        fees: [
+          {
+            name: "distance",
+            fee: 4100,
+            message: "",
+          },
+          {
+            name: "time",
+            fee: 0,
+            message: "",
+          },
+          {
+            name: "special",
+            fee: 0,
+            message: "",
+          },
+        ],
+        totalFees: 4100,
+        message: "",
+        title: "Delivery Charge",
+        amount: "4100",
+        icon: "",
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: "",
+        nextCloseMessage: "",
+      },
+      longDistanceEnabled: 1,
+      rainMode: "NONE",
+      thirdPartyAddress: false,
+      thirdPartyVendor: "",
+      adTrackingID: "",
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: [],
+      },
+      lastMileTravelString: "5.5 kms",
+      hasSurge: false,
+      sla: {
+        restaurantId: "10260",
+        deliveryTime: 27,
+        minDeliveryTime: 27,
+        maxDeliveryTime: 27,
+        lastMileTravel: 5.599999904632568,
+        lastMileDistance: 0,
+        serviceability: "SERVICEABLE",
+        rainMode: "NONE",
+        longDistance: "IT_IS_LONG_DISTANCE",
+        preferentialService: false,
+        iconType: "EMPTY",
+      },
+      promoted: false,
+      avgRating: "4.0",
+      totalRatings: 10000,
+      new: false,
+    },
+    subtype: "basic",
+  },
+  {
+    type: "restaurant",
+    data: {
+      type: "F",
+      id: "58575",
+      name: "Sri Gayathri Tiffins",
+      uuid: "2cdb0727-f76f-4615-b8a4-c34a1bd5ed3f",
+      city: "3",
+      area: "Uppal",
+      totalRatingsString: "5000+ ratings",
+      cloudinaryImageId: "v2ytojzkgm1jfrki7xna",
+      cuisines: ["South Indian"],
+      tags: [],
+      costForTwo: 10000,
+      costForTwoString: "₹100 FOR TWO",
+      deliveryTime: 37,
+      minDeliveryTime: 37,
+      maxDeliveryTime: 37,
+      slaString: "37 MINS",
+      lastMileTravel: 9.100000381469727,
+      slugs: {
+        restaurant: "sri-gayathri-tiffins-uppal-uppal",
+        city: "hyderabad",
+      },
+      cityState: "3",
+      address: "Balaji Nursing Home LAne, Vijayapuri Colony, Uppal",
+      locality: "Vijayapuri colony",
+      parentId: 19838,
+      unserviceable: false,
+      veg: true,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      aggregatedDiscountInfo: {
+        header: "30% off",
+        shortDescriptionList: [
+          {
+            meta: "30% off | Use TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "30% off up to ₹75 | Use code TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      aggregatedDiscountInfoV2: {
+        header: "30% OFF",
+        shortDescriptionList: [
+          {
+            meta: "Use TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "30% off up to ₹75 | Use code TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      chain: [],
+      feeDetails: {
+        fees: [
+          {
+            name: "distance",
+            fee: 7300,
+            message: "",
+          },
+          {
+            name: "time",
+            fee: 0,
+            message: "",
+          },
+          {
+            name: "special",
+            fee: 0,
+            message: "",
+          },
+        ],
+        totalFees: 7300,
+        message: "",
+        title: "Delivery Charge",
+        amount: "7300",
+        icon: "",
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: "",
+        nextCloseMessage: "",
+      },
+      longDistanceEnabled: 1,
+      rainMode: "NONE",
+      thirdPartyAddress: false,
+      thirdPartyVendor: "",
+      adTrackingID: "",
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: [],
+      },
+      lastMileTravelString: "9.1 kms",
+      hasSurge: false,
+      sla: {
+        restaurantId: "58575",
+        deliveryTime: 37,
+        minDeliveryTime: 37,
+        maxDeliveryTime: 37,
+        lastMileTravel: 9.100000381469727,
+        lastMileDistance: 0,
+        serviceability: "SERVICEABLE",
+        rainMode: "NONE",
+        longDistance: "IT_IS_LONG_DISTANCE",
+        preferentialService: false,
+        iconType: "EMPTY",
+      },
+      promoted: false,
+      avgRating: "4.3",
+      totalRatings: 5000,
+      new: false,
+    },
+    subtype: "basic",
+  },
+  {
+    type: "restaurant",
+    data: {
+      type: "F",
+      id: "617746",
+      name: "Burger King",
+      uuid: "e34bf1b7-0d3f-4f74-afe6-8c44ecc33afa",
+      city: "3",
+      area: "SECUNDERABAD",
+      totalRatingsString: "1000+ ratings",
+      cloudinaryImageId: "28fb13049b4e55297bb3f703cde63c35",
+      cuisines: ["American"],
+      tags: [],
+      costForTwo: 35000,
+      costForTwoString: "₹350 FOR TWO",
+      deliveryTime: 53,
+      minDeliveryTime: 53,
+      maxDeliveryTime: 53,
+      slaString: "53 MINS",
+      lastMileTravel: 13.699999809265137,
+      slugs: {
+        restaurant: "burger-king-amr-planet-mall-yapral-kowkoor",
+        city: "hyderabad",
+      },
+      cityState: "3",
+      address:
+        "Fc-8, 2nd floor food court  AMR planet sy.no 3731 and moula Ali ECIL extn., Malkajgiri secunderabad Telangana 500040",
+      locality: "AMR Planet Mall",
+      parentId: 166,
+      unserviceable: false,
+      veg: false,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      aggregatedDiscountInfo: {
+        header: "Get every item under 129",
+        shortDescriptionList: [
+          {
+            meta: "Get every item under 129",
+            discountType: "FinalPrice",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "Get every item under 129",
+            discountType: "FinalPrice",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      aggregatedDiscountInfoV2: {
+        header: "",
+        shortDescriptionList: [
+          {
+            meta: "",
+            discountType: "FinalPrice",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "Get every item under 129",
+            discountType: "FinalPrice",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      chain: [],
+      feeDetails: {
+        fees: [
+          {
+            name: "distance",
+            fee: 11300,
+            message: "",
+          },
+          {
+            name: "time",
+            fee: 0,
+            message: "",
+          },
+          {
+            name: "special",
+            fee: 0,
+            message: "",
+          },
+        ],
+        totalFees: 11300,
+        message: "",
+        title: "Delivery Charge",
+        amount: "11300",
+        icon: "",
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: "",
+        nextCloseMessage: "",
+      },
+      longDistanceEnabled: 1,
+      rainMode: "NONE",
+      thirdPartyAddress: false,
+      thirdPartyVendor: "",
+      adTrackingID: "",
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: [],
+      },
+      lastMileTravelString: "13.6 kms",
+      hasSurge: false,
+      sla: {
+        restaurantId: "617746",
+        deliveryTime: 53,
+        minDeliveryTime: 53,
+        maxDeliveryTime: 53,
+        lastMileTravel: 13.699999809265137,
+        lastMileDistance: 0,
+        serviceability: "SERVICEABLE",
+        rainMode: "NONE",
+        longDistance: "IT_IS_LONG_DISTANCE",
+        preferentialService: false,
+        iconType: "EMPTY",
+      },
+      promoted: false,
+      avgRating: "4.0",
+      totalRatings: 1000,
+      new: false,
+    },
+    subtype: "basic",
+  },
+  {
+    type: "restaurant",
+    data: {
+      type: "F",
+      id: "523740",
+      name: "RAJA SRI TIFFINS",
+      uuid: "426b37c6-6c7d-4c3f-a7f8-29bb98230230",
+      city: "3",
+      area: "E.C.I.L, Medchal",
+      totalRatingsString: "20+ ratings",
+      cloudinaryImageId: "iqjecgqfovpv3xyg7yeu",
+      cuisines: ["South Indian"],
+      tags: [],
+      costForTwo: 20000,
+      costForTwoString: "₹200 FOR TWO",
+      deliveryTime: 58,
+      minDeliveryTime: 58,
+      maxDeliveryTime: 58,
+      slaString: "58 MINS",
+      lastMileTravel: 14.5,
+      slugs: {
+        restaurant: "raja-sri-tiffins-bachupally-bachupally",
+        city: "hyderabad",
+      },
+      cityState: "3",
+      address:
+        "7-4/2, KAMALANAGAR, KUSHAIGUDA, MEDCHAL, MEDCHAL,MEDCHAL-MALKAJGIRI,TELANGANA-500062",
+      locality: "Bachupally",
+      parentId: 312420,
+      unserviceable: false,
+      veg: false,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      chain: [],
+      feeDetails: {
+        fees: [
+          {
+            name: "distance",
+            fee: 12300,
+            message: "",
+          },
+          {
+            name: "time",
+            fee: 0,
+            message: "",
+          },
+          {
+            name: "special",
+            fee: 0,
+            message: "",
+          },
+        ],
+        totalFees: 12300,
+        message: "",
+        title: "Delivery Charge",
+        amount: "12300",
+        icon: "",
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: "",
+        nextCloseMessage: "",
+      },
+      longDistanceEnabled: 1,
+      rainMode: "NONE",
+      thirdPartyAddress: false,
+      thirdPartyVendor: "",
+      adTrackingID: "",
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: [],
+      },
+      lastMileTravelString: "14.5 kms",
+      hasSurge: false,
+      sla: {
+        restaurantId: "523740",
+        deliveryTime: 58,
+        minDeliveryTime: 58,
+        maxDeliveryTime: 58,
+        lastMileTravel: 14.5,
+        lastMileDistance: 0,
+        serviceability: "SERVICEABLE",
+        rainMode: "NONE",
+        longDistance: "IT_IS_LONG_DISTANCE",
+        preferentialService: false,
+        iconType: "EMPTY",
+      },
+      promoted: false,
+      avgRating: "4.6",
+      totalRatings: 20,
+      new: false,
+    },
+    subtype: "basic",
+  },
+  {
+    type: "restaurant",
+    data: {
+      type: "F",
+      id: "694754",
+      name: "Sri Raghavendra Udupi Veg",
+      uuid: "829ce6cb-af7b-42ed-9c3d-bd8ddfcb1b4a",
+      city: "3",
+      area: "Medipally",
+      totalRatingsString: "20+ ratings",
+      cloudinaryImageId: "fc64da34dd0a95e7ae9051c74a72edfa",
+      cuisines: [
+        "South Indian",
+        "North Indian",
+        "Chinese",
+        "Thalis",
+        "Biryani",
+        "Desserts",
+        "Beverages",
+      ],
+      tags: [],
+      costForTwo: 30000,
+      costForTwoString: "₹300 FOR TWO",
+      deliveryTime: 29,
+      minDeliveryTime: 29,
+      maxDeliveryTime: 29,
+      slaString: "29 MINS",
+      lastMileTravel: 5,
+      slugs: {
+        restaurant: "sri-raghavendra-udupi-veg-uppal-uppal",
+        city: "hyderabad",
+      },
+      cityState: "3",
+      address:
+        "PLOT NO.2, SY NO.42, BHARATHPURI COLONY,  MEDIPALLI(V), PEERZADIGUDA, Medipally,  Medchal-Malkajgiri, Telangana-500039",
+      locality: "Bharathpuri Colony",
+      parentId: 19939,
+      unserviceable: false,
+      veg: false,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      chain: [],
+      feeDetails: {
+        fees: [
+          {
+            name: "distance",
+            fee: 4100,
+            message: "",
+          },
+          {
+            name: "time",
+            fee: 0,
+            message: "",
+          },
+          {
+            name: "special",
+            fee: 0,
+            message: "",
+          },
+        ],
+        totalFees: 4100,
+        message: "",
+        title: "Delivery Charge",
+        amount: "4100",
+        icon: "",
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: "",
+        nextCloseMessage: "",
+      },
+      longDistanceEnabled: 1,
+      rainMode: "NONE",
+      thirdPartyAddress: false,
+      thirdPartyVendor: "",
+      adTrackingID: "",
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: [],
+      },
+      lastMileTravelString: "5 kms",
+      hasSurge: false,
+      sla: {
+        restaurantId: "694754",
+        deliveryTime: 29,
+        minDeliveryTime: 29,
+        maxDeliveryTime: 29,
+        lastMileTravel: 5,
+        lastMileDistance: 0,
+        serviceability: "SERVICEABLE",
+        rainMode: "NONE",
+        longDistance: "IT_IS_LONG_DISTANCE",
+        preferentialService: false,
+        iconType: "EMPTY",
+      },
+      promoted: false,
+      avgRating: "4.5",
+      totalRatings: 20,
+      new: true,
+    },
+    subtype: "basic",
+  },
+  {
+    type: "restaurant",
+    data: {
+      type: "F",
+      id: "666978",
+      name: "Raamakeerthana Tiffins",
+      uuid: "3ad5bed3-f4eb-434a-aa48-8714b59325f9",
+      city: "3",
+      area: "Uppal",
+      totalRatingsString: "Too Few Ratings",
+      cloudinaryImageId: "47eabee7009164ca18a3ccf1dcc17377",
+      cuisines: ["South Indian", "Snacks"],
+      tags: [],
+      costForTwo: 9000,
+      costForTwoString: "₹90 FOR TWO",
+      deliveryTime: 39,
+      minDeliveryTime: 39,
+      maxDeliveryTime: 39,
+      slaString: "39 MINS",
+      lastMileTravel: 9.199999809265137,
+      slugs: {
+        restaurant: "raamakeerthana-tiffins-uppal-uppal",
+        city: "hyderabad",
+      },
+      cityState: "3",
+      address:
+        "PLOT NO 13, PADMAVATHI COLONY ,,Medipally,Medchal-Malkajgiri,Telangana-500098",
+      locality: "Sai nagar colony",
+      parentId: 400027,
+      unserviceable: false,
+      veg: true,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      aggregatedDiscountInfo: {
+        header: "FLAT100 off",
+        shortDescriptionList: [
+          {
+            meta: "FLAT100 off | Use FLATDEAL",
+            discountType: "Flat",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "FLAT100 off | Use FLATDEAL",
+            discountType: "Flat",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      aggregatedDiscountInfoV2: {
+        header: "₹100 OFF",
+        shortDescriptionList: [
+          {
+            meta: "Use FLATDEAL",
+            discountType: "Flat",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "FLAT100 off | Use FLATDEAL",
+            discountType: "Flat",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      chain: [],
+      feeDetails: {
+        fees: [
+          {
+            name: "distance",
+            fee: 7300,
+            message: "",
+          },
+          {
+            name: "time",
+            fee: 0,
+            message: "",
+          },
+          {
+            name: "special",
+            fee: 0,
+            message: "",
+          },
+        ],
+        totalFees: 7300,
+        message: "",
+        title: "Delivery Charge",
+        amount: "7300",
+        icon: "",
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: "",
+        nextCloseMessage: "",
+      },
+      longDistanceEnabled: 1,
+      rainMode: "NONE",
+      thirdPartyAddress: false,
+      thirdPartyVendor: "",
+      adTrackingID: "",
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: [],
+      },
+      lastMileTravelString: "9.1 kms",
+      hasSurge: false,
+      sla: {
+        restaurantId: "666978",
+        deliveryTime: 39,
+        minDeliveryTime: 39,
+        maxDeliveryTime: 39,
+        lastMileTravel: 9.199999809265137,
+        lastMileDistance: 0,
+        serviceability: "SERVICEABLE",
+        rainMode: "NONE",
+        longDistance: "IT_IS_LONG_DISTANCE",
+        preferentialService: false,
+        iconType: "EMPTY",
+      },
+      promoted: false,
+      avgRating: "--",
+      totalRatings: 0,
+      new: false,
+    },
+    subtype: "basic",
+  },
+  {
+    type: "restaurant",
+    data: {
+      type: "F",
+      id: "480077",
+      name: "Sai Vaishnavi Tiffin Centre",
+      uuid: "402544d9-5d79-4f88-9d77-756e642ed53c",
+      city: "3",
+      area: "Uppal",
+      totalRatingsString: "20+ ratings",
+      cloudinaryImageId: "dfxxcjm4t0a9shgvabfk",
+      cuisines: ["South Indian"],
+      tags: [],
+      costForTwo: 20000,
+      costForTwoString: "₹200 FOR TWO",
+      deliveryTime: 38,
+      minDeliveryTime: 38,
+      maxDeliveryTime: 38,
+      slaString: "38 MINS",
+      lastMileTravel: 6.400000095367432,
+      slugs: {
+        restaurant: "sai-vaishnavi-tiffin-centre-uppal-uppal",
+        city: "hyderabad",
+      },
+      cityState: "3",
+      address: "Road 3, Buddhanagar, Peerzadiguda",
+      locality: "Peerzadiguda",
+      parentId: 288407,
+      unserviceable: false,
+      veg: false,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      chain: [],
+      feeDetails: {
+        fees: [
+          {
+            name: "distance",
+            fee: 4700,
+            message: "",
+          },
+          {
+            name: "time",
+            fee: 0,
+            message: "",
+          },
+          {
+            name: "special",
+            fee: 0,
+            message: "",
+          },
+        ],
+        totalFees: 4700,
+        message: "",
+        title: "Delivery Charge",
+        amount: "4700",
+        icon: "",
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: "",
+        nextCloseMessage: "Closes soon",
+      },
+      longDistanceEnabled: 1,
+      rainMode: "NONE",
+      thirdPartyAddress: false,
+      thirdPartyVendor: "",
+      adTrackingID: "",
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: [],
+      },
+      lastMileTravelString: "6.4 kms",
+      hasSurge: false,
+      sla: {
+        restaurantId: "480077",
+        deliveryTime: 38,
+        minDeliveryTime: 38,
+        maxDeliveryTime: 38,
+        lastMileTravel: 6.400000095367432,
+        lastMileDistance: 0,
+        serviceability: "SERVICEABLE",
+        rainMode: "NONE",
+        longDistance: "IT_IS_LONG_DISTANCE",
+        preferentialService: false,
+        iconType: "EMPTY",
+      },
+      promoted: false,
+      avgRating: "4.4",
+      totalRatings: 20,
+      new: false,
+    },
+    subtype: "basic",
+  },
+  {
+    type: "restaurant",
+    data: {
+      type: "F",
+      id: "423202",
+      name: "Millet Express",
+      uuid: "9800c9c3-5236-4762-af4e-cb7b4c3c5eba",
+      city: "3",
+      area: "Kothapet & Dilsukhnagar",
+      totalRatingsString: "1000+ ratings",
+      cloudinaryImageId: "f89f83a650ad14380ffa50fccd9e2ac3",
+      cuisines: [
+        "Healthy Food",
+        "South Indian",
+        "North Indian",
+        "Biryani",
+        "Chinese",
+        "Beverages",
+      ],
+      tags: [],
+      costForTwo: 20000,
+      costForTwoString: "₹200 FOR TWO",
+      deliveryTime: 66,
+      minDeliveryTime: 66,
+      maxDeliveryTime: 66,
+      slaString: "66 MINS",
+      lastMileTravel: 14.800000190734863,
+      slugs: {
+        restaurant:
+          "millet-express-kothapet-&-dilsukhnagar-kothapet-&-dilsukhnagar",
+        city: "hyderabad",
+      },
+      cityState: "3",
+      address:
+        "#13-1-8/6, Prabhat Nagar, Opp:Madhava Reddy Community Hall, Chaitanyapuri, Dilsukh Nagar, Hyderabad -500060",
+      locality: "Opp:Madhava Reddy Community Hall",
+      parentId: 10639,
+      unserviceable: false,
+      veg: false,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      aggregatedDiscountInfo: {
+        header: "40% off",
+        shortDescriptionList: [
+          {
+            meta: "40% off | Use TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "40% off up to ₹80 | Use code TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      aggregatedDiscountInfoV2: {
+        header: "40% OFF",
+        shortDescriptionList: [
+          {
+            meta: "Use TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        descriptionList: [
+          {
+            meta: "40% off up to ₹80 | Use code TRYNEW",
+            discountType: "Percentage",
+            operationType: "RESTAURANT",
+          },
+        ],
+        subHeader: "",
+        headerType: 0,
+        superFreedel: "",
+      },
+      chain: [],
+      feeDetails: {
+        fees: [
+          {
+            name: "distance",
+            fee: 12300,
+            message: "",
+          },
+          {
+            name: "time",
+            fee: 0,
+            message: "",
+          },
+          {
+            name: "special",
+            fee: 0,
+            message: "",
+          },
+        ],
+        totalFees: 12300,
+        message: "",
+        title: "Delivery Charge",
+        amount: "12300",
+        icon: "",
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: "",
+        nextCloseMessage: "",
+      },
+      longDistanceEnabled: 1,
+      rainMode: "NONE",
+      thirdPartyAddress: false,
+      thirdPartyVendor: "",
+      adTrackingID: "",
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: [],
+      },
+      lastMileTravelString: "14.8 kms",
+      hasSurge: false,
+      sla: {
+        restaurantId: "423202",
+        deliveryTime: 66,
+        minDeliveryTime: 66,
+        maxDeliveryTime: 66,
+        lastMileTravel: 14.800000190734863,
+        lastMileDistance: 0,
+        serviceability: "SERVICEABLE",
+        rainMode: "NONE",
+        longDistance: "IT_IS_LONG_DISTANCE",
+        preferentialService: false,
+        iconType: "EMPTY",
+      },
+      promoted: false,
+      avgRating: "4.1",
+      totalRatings: 1000,
+      new: false,
+    },
+    subtype: "basic",
+  },
+  {
+    type: "restaurant",
+    data: {
+      type: "F",
+      id: "114341",
+      name: "Faasos - Wraps & Rolls",
+      uuid: "47a3e2d5-faa0-4505-9687-dac87d1bc463",
+      city: "3",
+      area: "Boduppal",
+      totalRatingsString: "1000+ ratings",
+      cloudinaryImageId: "ndnuounltar472prghig",
+      cuisines: ["Fast Food", "North Indian", "Street Food", "Desserts"],
+      tags: [],
+      costForTwo: 20000,
+      costForTwoString: "₹200 FOR TWO",
+      deliveryTime: 38,
+      minDeliveryTime: 38,
+      maxDeliveryTime: 38,
+      slaString: "38 MINS",
+      lastMileTravel: 7,
+      slugs: {
+        restaurant: "faasos-boduppal-uppal",
+        city: "hyderabad",
+      },
+      cityState: "3",
+      address:
+        "1- 41 first floor, BODUPPAL, PEERZADIGUDA, GHATKESAR MANDAL RANGA REDDY DISTRICT HYDERABAD TELANGANA 500039, Opp to DECATHLON SPORTS SHOP",
+      locality: "PEERZADIGUDA",
+      parentId: 21809,
+      unserviceable: false,
+      veg: false,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      chain: [],
+      feeDetails: {
+        fees: [
+          {
+            name: "distance",
+            fee: 5300,
+            message: "",
+          },
+          {
+            name: "time",
+            fee: 0,
+            message: "",
+          },
+          {
+            name: "special",
+            fee: 0,
+            message: "",
+          },
+        ],
+        totalFees: 5300,
+        message: "",
+        title: "Delivery Charge",
+        amount: "5300",
+        icon: "",
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: "",
+        nextCloseMessage: "",
+      },
+      longDistanceEnabled: 1,
+      rainMode: "NONE",
+      thirdPartyAddress: false,
+      thirdPartyVendor: "",
+      adTrackingID: "",
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: [],
+      },
+      lastMileTravelString: "7 kms",
+      hasSurge: false,
+      sla: {
+        restaurantId: "114341",
+        deliveryTime: 38,
+        minDeliveryTime: 38,
+        maxDeliveryTime: 38,
+        lastMileTravel: 7,
+        lastMileDistance: 0,
+        serviceability: "SERVICEABLE",
+        rainMode: "NONE",
+        longDistance: "IT_IS_LONG_DISTANCE",
+        preferentialService: false,
+        iconType: "EMPTY",
+      },
+      promoted: false,
+      avgRating: "3.8",
+      totalRatings: 1000,
+      new: false,
+    },
+    subtype: "basic",
+  },
+  {
+    type: "restaurant",
+    data: {
+      type: "F",
+      id: "408179",
+      name: "Pizza Hut",
+      uuid: "752c23b5-6114-4ef8-b0dd-50321b7e144b",
+      city: "3",
+      area: "Uppal",
+      totalRatingsString: "1000+ ratings",
+      cloudinaryImageId: "cul1qqra5s3m2jlhscih",
+      cuisines: ["Pizzas"],
+      tags: [],
+      costForTwo: 30000,
+      costForTwoString: "₹300 FOR TWO",
+      deliveryTime: 33,
+      minDeliveryTime: 33,
+      maxDeliveryTime: 33,
+      slaString: "33 MINS",
+      lastMileTravel: 6.599999904632568,
+      slugs: {
+        restaurant: "pizza-hut-ph-boduppal-hyderabad-uppal",
+        city: "hyderabad",
+      },
+      cityState: "3",
+      address:
+        "H.No.5-107/2, S.No.47, Budda nagar colony, Peerzadiguda village, uppal mandal, Ranga reddy District,Boddupal,Circle No.2, Hyderabad-East Zone,500092",
+      locality: "Budda nagar colony",
+      parentId: 721,
+      unserviceable: false,
+      veg: false,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      chain: [],
+      feeDetails: {
+        fees: [
+          {
+            name: "distance",
+            fee: 4700,
+            message: "",
+          },
+          {
+            name: "time",
+            fee: 0,
+            message: "",
+          },
+          {
+            name: "special",
+            fee: 0,
+            message: "",
+          },
+        ],
+        totalFees: 4700,
+        message: "",
+        title: "Delivery Charge",
+        amount: "4700",
+        icon: "",
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: "",
+        nextCloseMessage: "",
+      },
+      longDistanceEnabled: 1,
+      rainMode: "NONE",
+      thirdPartyAddress: false,
+      thirdPartyVendor: "",
+      adTrackingID: "",
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: [],
+      },
+      lastMileTravelString: "6.5 kms",
+      hasSurge: false,
+      sla: {
+        restaurantId: "408179",
+        deliveryTime: 33,
+        minDeliveryTime: 33,
+        maxDeliveryTime: 33,
+        lastMileTravel: 6.599999904632568,
+        lastMileDistance: 0,
+        serviceability: "SERVICEABLE",
+        rainMode: "NONE",
+        longDistance: "IT_IS_LONG_DISTANCE",
+        preferentialService: false,
+        iconType: "EMPTY",
+      },
+      promoted: false,
+      avgRating: "3.8",
+      totalRatings: 1000,
+      new: false,
+    },
+    subtype: "basic",
+  },
+];
 
-const Heading = () => (
-  <div>
-    <Title />
-    <h1>Namaste React Functional Component</h1>
-  </div>
-);
+const RestaurantCard = (props) => {
+  const { resData } = props;
+  const { name, cuisines, avgRating, maxDeliveryTime, cloudinaryImageId } =
+    resData.data;
+  return (
+    <div
+      className="restaurant-card"
+      style={{ backgroundColor: "#f0f0f0", height: "350px" }}
+    >
+      <img
+        className="res-logo"
+        alt="res-logo"
+        src={`https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/${cloudinaryImageId}`}
+      />
+      <h3>{name}</h3>
+      <h4 style={{ wordWrap: "break-word" }}>{cuisines.join(",")}</h4>
+      <h4>{avgRating}</h4>
+      <h4>{maxDeliveryTime}</h4>
+    </div>
+  );
+};
+
+const Body = () => {
+  console.log(resObj[0]);
+  return (
+    <div className="body">
+      <div className="search">Search</div>
+      <div className="restaurant-container">
+        {resObj.map((res) => {
+          return <RestaurantCard key={res.data.id} resData={res} />;
+        })}
+      </div>
+    </div>
+  );
+};
+
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header />
+      <Body />
+    </div>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(jsxHeading);
-
-/**
- *
- * To render a react component, we use below syntax
- */
-
-root.render(<Heading />);
-const newRoot = ReactDOM.createRoot(document.getElementById("root"));
-
-newRoot.render(<Title />);
+root.render(<AppLayout />);
