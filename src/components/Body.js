@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -8,6 +9,7 @@ const Body = () => {
   const [bufferedList, setBufferedList] = useState([]);
   useEffect(() => {
     fetchData();
+    // console.log("Body rendered ");
   }, []);
   console.log("::useeffect called");
 
@@ -69,7 +71,11 @@ const Body = () => {
       </div>
       <div className="restaurant-container">
         {bufferedList.map((res) => {
-          return <RestaurantCard key={res.data.id} resData={res} />;
+          return (
+            <Link key={res.data.id} to={`/restaurant/${res.data.id}`}>
+              <RestaurantCard resData={res} />
+            </Link>
+          );
         })}
       </div>
     </div>

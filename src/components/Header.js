@@ -1,10 +1,15 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   // let btnName = "login";
   let count = 0;
   const [btnName, setBtnName] = useState("Login");
+
+  useEffect(() => {
+    console.log("Header rendered");
+  });
 
   /*btnName when re-rendered after it changes, the btnName gets updated with the new value provided from setBtnName.
     As the page is re-rendered after state change, the btnName is declared with Logout value.
@@ -19,9 +24,15 @@ const Header = () => {
       <div className="nav-items">
         {console.log("Near UL", count)}
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact Us</Link>
+          </li>
           <li>Cart</li>
           <button
             className="login"
