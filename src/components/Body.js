@@ -7,8 +7,8 @@ const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [bufferedList, setBufferedList] = useState([]);
-  useEffect(() => {
-    fetchData();
+  useEffect(async () => {
+    await fetchData();
     // console.log("Body rendered ");
   }, []);
   console.log("::useeffect called");
@@ -18,9 +18,21 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4248522&lng=78.6448085&page_type=DESKTOP_WEB_LISTING"
     );
     const restaurantListJson = await restaurantList.json();
-    // console.log(restaurantListJson);
-    setListOfRestaurants(restaurantListJson.data.cards[2].data.data.cards);
-    setBufferedList(restaurantListJson.data.cards[2].data.data.cards);
+    console.log(
+      "::res list",
+      restaurantListJson.data.cards[5].card.card.gridElements.infoWithStyle
+        .restaurants
+    );
+    // setListOfRestaurants(restaurantListJson.data.cards[2].data.data.cards);
+    setListOfRestaurants(
+      restaurantListJson.data.cards[5].card.card.gridElements.infoWithStyle
+        .restaurants
+    );
+    // setBufferedList(restaurantListJson.data.cards[2].data.data.cards);
+    setBufferedList(
+      restaurantListJson.data.cards[5].card.card.gridElements.infoWithStyle
+        .restaurants
+    );
   };
 
   //Conditional rendering
@@ -45,11 +57,15 @@ const Body = () => {
               //Search text
               const filteredRestaurants = listOfRestaurants.filter(
                 (restaurant) =>
-                  restaurant.data.name
+                  restaurant.info.name
                     .toLowerCase()
                     .includes(searchText.toLowerCase())
               );
+              console.log("::res list 0 on click", filteredRestaurants);
+
               setBufferedList(filteredRestaurants);
+              setListOfRestaurants(filteredRestaurants);
+              console.log("::biffered", bufferedList, searchText);
             }}
           >
             Search
@@ -58,22 +74,27 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
+            console.log("::clicked");
             console.log("after", listOfRestaurants);
             const filteredList = listOfRestaurants.filter(
-              (restaurant) => restaurant.data.avgRating > 4
+              (restaurant) => restaurant.info.avgRating > 4
             );
+            console.log("::filteredlst ", filteredList);
             setListOfRestaurants(filteredList);
-            console.log("before", listOfRestaurants);
+            console.log("::filtered before", listOfRestaurants);
           }}
         >
           Top Rated Restaurant
         </button>
       </div>
       <div className="restaurant-container">
-        {bufferedList.map((res) => {
+        {listOfRestaurants.map((res) => {
+          {
+            console.log("::res is ", res.info);
+          }
           return (
-            <Link key={res.data.id} to={`/restaurant/${res.data.id}`}>
-              <RestaurantCard resData={res} />
+            <Link key={res.info.id} to={`/restaurant/${res.info.id}`}>
+              <RestaurantCard resData={res.info} />
             </Link>
           );
         })}
