@@ -5,7 +5,7 @@ const useRestaurantBody = () => {
   const [bufferedList, setBufferedList] = useState([]);
 
   useEffect(() => {
-    fetchData();
+    (async () => await fetchData())();
   }, []);
 
   const handleOnClickForSearch = () => {
@@ -36,13 +36,18 @@ const useRestaurantBody = () => {
     const restaurantListJson = await restaurantList.json();
     console.log("::res list json", restaurantListJson);
     // setListOfRestaurants(restaurantListJson.data.cards[2].data.data.cards);
+    // setListOfRestaurants(
+    //   restaurantListJson?.data?.cards[5]?.card?.card?.gridElements
+    //     ?.infoWithStyle?.restaurants
+    // );
     setListOfRestaurants(
-      restaurantListJson?.data?.cards[4]?.card?.card?.gridElements
+      restaurantListJson?.data?.cards[2]?.card?.card?.gridElements
         ?.infoWithStyle?.restaurants
     );
+    console.log("::list of restaurants");
     // setBufferedList(restaurantListJson.data.cards[2].data.data.cards);
     setBufferedList(
-      restaurantListJson.data.cards[4].card.card.gridElements.infoWithStyle
+      restaurantListJson.data.cards[2].card.card.gridElements.infoWithStyle
         .restaurants
     );
   };
