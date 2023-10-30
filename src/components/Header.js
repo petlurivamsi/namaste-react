@@ -1,7 +1,8 @@
 import { LOGO_URL } from "../utils/constants";
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   // let btnName = "login";
@@ -9,9 +10,7 @@ const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const isOnline = useOnlineStatus();
 
-  useEffect(() => {
-    console.log("Header rendered");
-  });
+  const { loggedInUser } = useContext(UserContext);
 
   /*btnName when re-rendered after it changes, the btnName gets updated with the new value provided from setBtnName.
     As the page is re-rendered after state change, the btnName is declared with Logout value.
@@ -24,7 +23,6 @@ const Header = () => {
         <img className="w-56" src={LOGO_URL} />
       </div>
       <div className="flex items-center">
-        {console.log("Near UL", count)}
         <ul className="flex p-4 m-4">
           <li className="px-4">
             Online status:{isOnline === true ? "🟢" : "🔴"}
@@ -50,6 +48,7 @@ const Header = () => {
           >
             {btnName}
           </button>
+          <li className="px-4 font-bold">{loggedInUser}</li>
         </ul>
       </div>
     </div>

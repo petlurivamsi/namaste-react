@@ -5,7 +5,7 @@ const useRestaurantBody = () => {
   const [bufferedList, setBufferedList] = useState([]);
 
   useEffect(() => {
-    (async () => await fetchData())();
+    fetchData();
   }, []);
 
   const handleOnClickForSearch = () => {
@@ -22,7 +22,6 @@ const useRestaurantBody = () => {
   };
 
   const handleOnClickForTopRatedRestaurants = () => {
-    console.log("::buffered list of restauratns ", bufferedList);
     const filteredList = bufferedList.filter(
       (restaurant) => restaurant.info.avgRating > 4
     );
@@ -31,21 +30,14 @@ const useRestaurantBody = () => {
 
   const fetchData = async () => {
     const restaurantList = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4248522&lng=78.6448085&page_type=DESKTOP_WEB_LISTING"
+      // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4248522&lng=78.6448085&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4267972&lng=78.4524801&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const restaurantListJson = await restaurantList.json();
-    console.log("::res list json", restaurantListJson);
-    // setListOfRestaurants(restaurantListJson.data.cards[2].data.data.cards);
-    // setListOfRestaurants(
-    //   restaurantListJson?.data?.cards[5]?.card?.card?.gridElements
-    //     ?.infoWithStyle?.restaurants
-    // );
     setListOfRestaurants(
       restaurantListJson?.data?.cards[2]?.card?.card?.gridElements
         ?.infoWithStyle?.restaurants
     );
-    console.log("::list of restaurants");
-    // setBufferedList(restaurantListJson.data.cards[2].data.data.cards);
     setBufferedList(
       restaurantListJson.data.cards[2].card.card.gridElements.infoWithStyle
         .restaurants

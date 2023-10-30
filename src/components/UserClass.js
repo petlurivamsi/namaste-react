@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
+import UserContext from "../utils/UserContext";
 
 class UserClass extends React.Component {
   constructor(props) {
-    console.log("::constructor in child");
     super(props);
     this.state = {
       userInfo: {
@@ -15,19 +15,23 @@ class UserClass extends React.Component {
   async componentDidMount() {
     const data = await fetch("https://api.github.com/users/petlurivamsi");
     const jsonData = await data.json();
-    console.log("::component did mount in child");
     this.setState({
       userInfo: jsonData,
     });
   }
 
-  componentDidUpdate() {
-    console.log("::component did update in child");
-  }
+  componentDidUpdate() {}
   render() {
     const { name, location, avatar_url } = this.state.userInfo;
+
     return (
       <div className="user-card">
+        <UserContext.Consumer>
+          {({ loggedInUser }) => (
+            <h1 className="text-xl font-bold">{loggedInUser}</h1>
+          )}
+        </UserContext.Consumer>
+        ;
         <img src={avatar_url} />
         <h2>Name:{name}</h2>
         <h3>Location: {location}</h3>

@@ -1,14 +1,28 @@
 import Shimmer from "./Shimmer";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
+import { useState, useContext } from "react";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-  console.log("::resId ", resId);
+  const [showIndex, setShowIndex] = useState(-1);
+  const [show, setShow] = useState(false);
 
   const resInfo = useRestaurantMenu(resId);
+  if (!resInfo) {
+    return <p>Loading...</p>;
+  }
 
-  console.log("::resInfo", resInfo);
+  function handleShow() {
+    setShow(!show);
+  }
+  const categories =
+    resInfo.cards[2].groupedCard.cardGroupMap.REGULAR.cards.filter(
+      (category) =>
+        category.card.card["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
 
   if (resInfo === null) {
     return <Shimmer />;
@@ -20,23 +34,21 @@ const RestaurantMenu = () => {
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
   return (
-    <div className="menu">
-      <h1>{name}</h1>
-      <p>
+    <div className="text-center">
+      <h1 className="font-bold my-6 text-2xl">{name}</h1>
+      <p className="font-bold text-lg">
         {cuisines.join(",")}-{costForTwoMessage}
       </p>
-      <ul>
-        {itemCards.map((items) => {
-          if (items.card.card.itemCards) {
-            return items.card.card.itemCards.map((item) => (
-              <li key={item.card.info.id}>
-                {item.card.info.name}-
-                {item.card.info.price / 100 || "Price unavailable"}
-              </li>
-            ));
-          }
-        })}
-      </ul>
+      {/**accordion comes here */}
+      {categories.map((category, index) => {
+        return (
+          <RestaurantCategory
+            key={category?.card?.card.title}
+            data={category?.card?.card}
+            setShowIndex={() => setShowIndex(index)}
+          />
+        );
+      })}
     </div>
   );
 };
