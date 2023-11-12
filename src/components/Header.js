@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   // let btnName = "login";
@@ -12,6 +13,7 @@ const Header = () => {
 
   const { loggedInUser } = useContext(UserContext);
 
+  const cartItems = useSelector((store) => store.cart.items);
   /*btnName when re-rendered after it changes, the btnName gets updated with the new value provided from setBtnName.
     As the page is re-rendered after state change, the btnName is declared with Logout value.
   */
@@ -39,7 +41,9 @@ const Header = () => {
           <li className="px-4">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="px-4">Cart</li>
+          <li className="px-4 font-bold">
+            <Link to="/cart">Cart({cartItems.length} items)</Link>
+          </li>
           <button
             className="login"
             onClick={() => {
