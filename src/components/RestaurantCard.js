@@ -11,6 +11,7 @@ const RestaurantCard = (props) => {
 
   return (
     <div
+      data-testid="resCard"
       className="m-4 p-4 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-400"
       // style={{ backgroundColor: "#f0f0f0", height: "350px" }}
     >
